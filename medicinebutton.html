@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Import Your Meds</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+  body {
+  font-family: 'Times New Roman', Times, serif;
+  background: linear-gradient(135deg, #f0f4f8, #d9e6f2);
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 450px;
+  margin: 50px auto;
+  padding: 25px;
+  background: linear-gradient(to right, #a8c0ff, #b8e0d2);
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; /* Center content dalam container */
+}
+
+.header {
+  font-size: 26px;
+  font-weight: 700;
+  text-align: center;
+  color: #00688B;
+  margin-bottom: 20px;
+}
+
+p {
+  text-align: center;
+  font-size: 14px;
+  color: #4A637D;
+}
+
+.medication-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.add-medicine-btn {
+  display: block;
+  width: 50%;
+  top: 20px;
+  left: 20px;
+  padding: 12px;
+  background: #f7f7eb;
+  color: #85818a;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 0 auto 20px auto;
+  transition: background 0.3s ease;
+}
+
+.add-medicine-btn:hover {
+  background: #c9c9b9;
+}
+
+.add-medicine-btn:active {
+  transform: scale(0.98);
+}
+
+.add-medicine-form {
+  display: none;
+  margin-bottom: 20px;
+  align-items: center;
+  width: 100%; /* Make sure it stretches the full width */
+  text-align: center; /* Centering the form */
+}
+
+.add-medicine-form input {
+  width: 70%;
+  padding: 12px;
+  margin: 10px auto; /* Centering the input fields */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.add-medicine-form button {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background: #f7f7eb;
+  color: #85818a;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.add-medicine-form button:hover {
+  background: #009b9e;
+}
+
+.continue-btn {
+  display: block;
+  width: 50%;
+  padding: 12px;
+  background: #f7f7eb;
+  color: #85818a;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 0 auto 20px auto;
+  transition: background 0.3s ease;
+}
+
+.continue-btn:hover {
+  background: linear-gradient(135deg, #009b9e, #00a4a3);
+}
+
+.continue-btn:active {
+  transform: scale(0.98);
+}
+
+.back-btn {
+  padding: 5px 5px;
+  position: absolute;
+  top: 40px;
+  left: 400px;
+  font-size: 10px;
+  background: #f7f7eb;
+  color: #85818a;
+  border-radius: 10px;
+  text-align: center;
+  margin-top: 20px;
+  cursor: pointer;
+  border: none;
+}
+
+.back-btn:hover {
+  background: #ffffff;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .header {
+    font-size: 22px;
+  }
+
+  .medication-name {
+    font-size: 16px;
+  }
+
+  .medication-dosage {
+    font-size: 14px;
+  }
+
+  .medication-item {
+    padding: 12px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .button-group {
+    display: flex;
+    gap: 5px;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .add-medicine-btn,
+  .continue-btn {
+    width: 70%;
+  }
+
+  .add-medicine-form input {
+    width: 100%;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    font-size: 18px;
+  }
+
+  .medication-name {
+    font-size: 14px;
+  }
+
+  .medication-dosage {
+    font-size: 12px;
+  }
+
+  .add-medicine-btn,
+  .continue-btn {
+    width: 90%;
+  }
+
+  .add-medicine-form input {
+    padding: 8px;
+  }
+}
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <button class="back-btn" onclick="goBack()">Kembali</button>
+    <div class="header">Senarai Ubat-Ubatan Anda</div>
+    <p>Pilih atau tambah senarai perubatan anda</p>
+
+    <button class="add-medicine-btn" onclick="toggleAddForm()">Tambah Ubat</button>
+    
+    <div class="add-medicine-form" id="addMedicineForm">
+      <input type="text" id="medicineName" placeholder="Nama Ubat" />
+      <input type="text" id="medicineDosage" placeholder="Dos (cth., 5 mg)" />
+      <input type="date" id="prescriptionDate" />
+      <button onclick="addMedicine()">Tambah ke senarai</button>
+    </div>
+
+    <ul class="medication-list" id="medicationList">
+      <!-- New medicines will appear here -->
+    </ul>
+
+    <button class="continue-btn" onclick="continueAction()">Seterusnya</button>
+  </div>
+
+  <script>
+    let currentEditId = null;
+
+    function toggleAddForm() {
+      const form = document.getElementById('addMedicineForm');
+      form.style.display = form.style.display === 'none' ? 'block' : 'none';
+      if (currentEditId !== null) {
+        document.getElementById('medicineName').value = document.getElementById(currentEditId).querySelector('.medication-name').textContent;
+        document.getElementById('medicineDosage').value = document.getElementById(currentEditId).querySelector('.medication-dosage').textContent;
+        document.getElementById('prescriptionDate').value = document.getElementById(currentEditId).querySelector('.prescribed-date').textContent.split('on: ')[1];
+      }
+    }
+
+    function addMedicine() {
+      const name = document.getElementById('medicineName').value;
+      const dosage = document.getElementById('medicineDosage').value;
+      const date = document.getElementById('prescriptionDate').value;
+
+      if (name && dosage && date) {
+        const list = document.getElementById('medicationList');
+        const newItem = document.createElement('li');
+        newItem.classList.add('medication-item');
+        newItem.id = name + '-' + date; // Unique id for edit/delete
+        newItem.innerHTML = ` 
+          <input type="checkbox" id="${name}" name="medications" />
+          <div class="medication-info">
+            <div class="medication-name">${name}</div>
+            <div class="medication-dosage">${dosage}</div>
+            <div class="prescribed-date">Prescribed on: ${date}</div>
+          </div>
+          <div class="button-group">
+            <button class="edit-btn" onclick="editMedicine('${newItem.id}')">Edit</button>
+            <button class="delete-btn" onclick="deleteMedicine('${newItem.id}')">Padam</button>
+          </div>
+        `;
+        list.appendChild(newItem);
+
+        // Clear input fields
+        document.getElementById('medicineName').value = '';
+        document.getElementById('medicineDosage').value = '';
+        document.getElementById('prescriptionDate').value = '';
+
+        // Hide the form again
+        toggleAddForm();
+      } else {
+        alert('Please fill in all fields.');
+      }
+    }
+
+    function deleteMedicine(itemId) {
+      const item = document.getElementById(itemId);
+      item.remove();
+    }
+
+    function editMedicine(itemId) {
+      currentEditId = itemId;
+      toggleAddForm();
+    }
+
+    function continueAction() {
+      const selectedMeds = [];
+      const checkboxes = document.querySelectorAll('input[name="medications"]:checked');
+      checkboxes.forEach((checkbox) => {
+        selectedMeds.push(checkbox.parentElement.querySelector('.medication-name').textContent);
+      });
+
+      if (selectedMeds.length === 0) {
+        alert("Please select at least one medication.");
+      } else {
+        alert("You have selected the following medications: \n" + selectedMeds.join("\n"));
+      }
+    }
+
+    function goBack() {
+      window.history.back();
+    }
+  </script>
+
+</body>
+</html>
+

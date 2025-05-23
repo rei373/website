@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medical Records</title>
+  <style>
+    body {
+      font-family: Times New Roman, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f8f8;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
+      background-color: #fff;
+      border-radius: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    header {
+      background: linear-gradient(to right, #a8c0ff, #b8e0d2);
+      padding: 20px;
+      border-radius: 20px 20px 0 0;
+    }
+
+    .header h1 {
+      margin: 0;
+      margin-bottom: 20px;
+      color: #67769e;
+      font-size: 20px;
+      text-align: center;
+    }
+
+    .tabs button { /* BULAT BULAT TAHUN TU */
+      background-color: #fff;
+      color: #67769e;
+      border: none;
+      padding: 10px 10px;
+      margin; 0;
+      margin-right: 10px;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+    .tabs button:hover { /* ADD YOUR MEDICINE */
+      background-color: #f1f1f1;
+    }
+
+    .empty-record {
+      text-align: center;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+
+    .empty-record p {
+      font-size: 16px;
+      color: #555;
+    }
+
+    .add-record-btn {
+      background: linear-gradient(to right, #a8c0ff, #b8e0d2);
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    .add-record-btn:hover {
+      background-color: #e1245b;
+    }
+
+    .add-record-form {
+      display: none;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-radius: 10px;
+      margin: 20px 0;
+    }
+
+    .add-record-form label {
+      display: block;
+      margin-top: 10px;
+    }
+
+    .add-record-form input, .add-record-form textarea {
+      width: 70%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    .add-record-form button {
+      background: linear-gradient(to right, #a8c0ff, #b8e0d2);
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    .add-record-form button:hover {
+      background-color: #e1245b;
+    }
+
+    .cancel-btn {
+      background: linear-gradient(to right, #a8c0ff, #b8e0d2);
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .cancel-btn:hover {
+      background-color: #b3b3b3;
+    }
+
+    footer {
+      display: flex;
+      justify-content: center;
+      background: linear-gradient(to right, #a8c0ff, #b8e0d2);
+      padding: 10px;
+      border-radius: 0 0 20px 20px;
+    }
+
+    footer .back-btn {
+      background-color: #fff;
+      color: #00b0b9;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 20px;
+    }
+
+    footer .back-btn:hover {
+      background-color: #f1f1f1;
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 768px) {
+      .header h1 {
+        font-size: 22px;
+      }
+
+      .tabs button {
+        padding: 8px 16px;
+        font-size: 14px;
+      }
+
+      .add-record-form input,
+      .add-record-form textarea {
+        font-size: 14px;
+        padding: 12px;
+      }
+
+      .add-record-form button {
+        font-size: 14px;
+        padding: 12px 18px;
+      }
+
+      .cancel-btn {
+        font-size: 14px;
+        padding: 12px 18px;
+      }
+
+      .back-btn {
+        font-size: 14px;
+        padding: 12px 18px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header h1 {
+        font-size: 18px;
+      }
+
+      .tabs button {
+        padding: 6px 12px;
+        font-size: 12px;
+      }
+
+      .add-record-form input,
+      .add-record-form textarea {
+        font-size: 12px;
+        padding: 10px;
+      }
+
+      .add-record-form button {
+        font-size: 12px;
+        padding: 10px 15px;
+      }
+
+      .cancel-btn {
+        font-size: 12px;
+        padding: 10px 15px;
+      }
+
+      .back-btn {
+        padding: 10px 20px;
+        font-size: 14px;
+        background: #ffffff;
+        color: #85818a;
+        border-radius: 10px;
+        text-align: center;
+        margin-top: 20px;
+        cursor: pointer;
+        border: none;
+      }
+
+      .back-btn:hover {
+        background: #ffffff;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <div class="header">
+        <h1>Rekod Perubatan</h1>
+        <div class="tabs">
+          <button>Semua</button>
+          <button>2025</button>
+          <button>2024</button>
+          <button>2023</button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="empty-record">
+        <p>Anda belum mempunyai sebarang rekod</p>
+        <button class="add-record-btn">Tambah rekod anda</button>
+      </div>
+
+      <div class="add-record-form">
+        <h2>Tambah rekod anda</h2>
+        <form id="addRecordForm">
+          <label for="date">Tarikh:</label>
+          <input type="date" id="date" name="date">
+          <label for="doctor">Doktor:</label>
+          <input type="text" id="doctor" name="doctor" placeholder="Nama Doktor">
+          <label for="description">Penerangan:</label>
+          <textarea id="description" name="description" placeholder="Maklumat kesihatan atau catatan"></textarea>
+          <button type="submit" id="saveRecord">Simpan Rekod</button>
+        </form>
+        <button class="cancel-btn">Batal</button>
+      </div>
+    </main>
+
+    <footer>
+      <button class="back-btn">Kembali</button>
+    </footer>
+  </div>
+
+  <script>
+    document.querySelector('.add-record-btn').addEventListener('click', function() {
+      document.querySelector('.add-record-form').style.display = 'block';
+      document.querySelector('.empty-record').style.display = 'none';
+    });
+
+    document.querySelector('.cancel-btn').addEventListener('click', function() {
+      document.querySelector('.add-record-form').style.display = 'none';
+      document.querySelector('.empty-record').style.display = 'block';
+    });
+
+    document.querySelector('#addRecordForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevents form submission and page reload
+      // Here you would typically send the form data to the server
+      alert('Record saved successfully!');
+      
+      // Redirect to the previous page (or update the page content to show the new record)
+      window.history.back();
+    });
+
+    document.querySelector('.back-btn').addEventListener('click', function() {
+      window.history.back();
+    });
+  </script>
+
+</body>
+</html>

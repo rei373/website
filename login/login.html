@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up / Sign In</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Times New Roman', sans-serif;
+      background:  linear-gradient(to right, #a8c0ff, #b8e0d2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #fff;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 400px;
+      padding: 50px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    }
+
+    .auth-page {
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 32px;
+      margin-bottom: 10px;
+      color: #88809b;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    .subheading {
+      font-size: 12px;
+      color: #a8a2b7;
+      margin-bottom: 30px;
+      font-weight: 300;
+    }
+
+    input {
+      width: 100%;
+      padding: 14px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 16px;
+      font-family: 'Times New Roman', sans-serif;
+      color: #333;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #00b0b9;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      background:  linear-gradient(to right, #a8c0ff, #b8e0d2);
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      font-family: 'Times New Roman', sans-serif;
+    }
+
+    button:hover {
+      background-color: #00979c;
+    }
+
+    .forgot-password {
+      font-size: 14px;
+      margin-top: 10px;
+    }
+
+    .forgot-password a {
+      color: #b1a9c2;
+      text-decoration: none;
+    }
+
+    .forgot-password a:hover {
+      text-decoration: underline;
+    }
+
+    .switch-page {
+      font-size: 14px;
+      margin-top: 20px;
+    }
+
+    .switch-page a {
+      color: #b1a9c2;
+      text-decoration: none;
+    }
+
+    .switch-page a:hover {
+      text-decoration: underline;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    .auth-page {
+      animation: fadeIn 0.5s ease-out;
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 28px;
+      }
+
+      .subheading {
+        font-size: 16px;
+      }
+
+      input {
+        font-size: 14px;
+        padding: 12px;
+      }
+
+      button {
+        font-size: 14px;
+        padding: 12px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 24px;
+      }
+
+      .subheading {
+        font-size: 14px;
+      }
+
+      input {
+        font-size: 12px;
+        padding: 10px;
+      }
+
+      button {
+        font-size: 12px;
+        padding: 10px;
+      }
+    }
+
+    /* Focus effect for inputs */
+    input:focus {
+      border-color: #00b0b9;
+      box-shadow: 0 0 5px rgba(0, 176, 185, 0.5);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="auth-page" id="sign-in-page">
+      <h1>Selamat Datang</h1>
+      <p class="subheading">Hai! Gembira Berjumpa Anda Semula</p>
+      <form action="../homescreen/homescreen.html" method="post">
+        <input type="email" id="email" placeholder="Emel" required>
+        <input type="password" id="password" placeholder="Kata Laluan" required>
+        <button type="submit" class="btn"> Log Masuk </button>
+      </form>
+
+      <p class="forgot-password"><a href="#">Lupa katalaluan?</a></p>
+      <p class="switch-page">Belum mempunyai akaun? <a href="javascript:void(0);" onclick="showSignUp()">Daftar Akaun</a></p>
+    </div>
+
+    <div class="auth-page" id="sign-up-page" style="display: none;">
+      <h1>Daftar Akaun Anda</h1>
+      <form action="../homescreen/homescreen.html" method="post">
+        <input type="text" id="full-name" placeholder="Nama Penuh" required>
+        <input type="email" id="email" placeholder="Emel" required>
+        <input type="password" id="password" placeholder="Kata laluan" required>
+        <input type="password" id="confirm-password" placeholder="Sahkan kata laluan" required>
+        <button type="submit" class="btn">Daftar</button>
+        <p class="switch-page">Already have an account? <a href="javascript:void(0);" onclick="showSignIn()">Daftar Masuk</a></p>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function showSignUp() {
+      document.getElementById("sign-in-page").style.display = "none";
+      document.getElementById("sign-up-page").style.display = "block";
+    }
+
+    function showSignIn() {
+      document.getElementById("sign-up-page").style.display = "none";
+      document.getElementById("sign-in-page").style.display = "block";
+    }
+  </script>
+</body>
+</html>

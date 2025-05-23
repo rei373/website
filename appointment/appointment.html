@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doctor Appointment App</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Basic styling for the layout */
+    body {
+      font-family: Times New Roman, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #a8c0ff, #b8e0d2);
+    }
+
+    header {
+      background: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 24px;
+      margin: 0;
+      color: #525f80;
+    }
+
+    /* -CATEGORY SECTION- */
+    .category-section {
+      background: white;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 10px;
+    }
+
+    .category-section h2 {
+      text-align: center;
+      color: linear-gradient(to right, #a8c0ff, #b8e0d2);
+      margin-bottom: 20px;
+    }
+
+    .categories {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+
+    .category-button {
+      padding: 20px 30px;
+      text-align: center;
+      font-size: 16px;
+      color: white;
+      cursor: pointer;
+      width: 120px;
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      background-color: #525f80;
+      border-radius: 50%;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s, transform 0.3s;
+      margin: 10px;
+    }
+
+    .category-button img {
+      width: 50px;
+      height: 50px;
+      margin-bottom: 10px;
+    }
+
+    .category-button:hover {
+      background: linear-gradient(to right, #a8c0ff, #b8e0d2);
+      transform: translateY(-5px);
+    }
+
+    .category-button a {
+      color: inherit;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    /* Back Button Styling */
+    .back-button {
+      background: white;
+      color: #a8c0ff;
+      padding: 10px 20px;
+      border-radius: 10px;
+      text-align: center;
+      display: inline-block;
+      text-decoration: none;
+      margin-top: 20px;
+    }
+
+    .back-button:hover {
+      background-color: #525f80;
+    }
+
+    /* Mobile Friendly Adjustments */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 20px;
+      }
+
+      .categories .card {
+        width: 100%; /* Full width on mobile */
+        margin-bottom: 15px;
+      }
+
+      .card img {
+        width: 50px; /* Smaller images */
+        height: 50px;
+      }
+
+      .card h3 {
+        font-size: 14px; /* Smaller font size */
+      }
+    }
+
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 18px;
+      }
+
+      .card img {
+        width: 40px; /* Even smaller images */
+        height: 40px;
+      }
+
+      .card h3 {
+        font-size: 12px; /* Even smaller font size */
+      }
+
+      .back-button {
+        padding: 8px 16px; /* Smaller back button padding */
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>APPOINTMENT</h1>
+    <p>Choose your type of appointment</p>
+  </header>
+
+  <!-- Category Buttons -->
+  <div class="category-section">
+    <div class="categories">
+      <div class="category-button">
+        <img src="doctor.png" alt="Doctor Consultation">
+        <a href="../bookdoc/bookdoc.html">Doctor Consultation</a>
+      </div>
+      <div class="category-button">
+        <img src="medicine.png" alt="Medicine Collection">
+        <a href="../medscollect/medscollect.html">Medicine Collection</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Back Button -->
+  <div style="text-align: center;">
+    <a href="javascript:history.back()" class="back-button">Back</a>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Screen</title>
+  <link href="https://fonts.googleapis.com/css2?family=Times+New+Roman&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Body and Background */
+    body {
+      font-family: 'Times New Roman', serif;
+      margin: 0;
+      padding: 0;
+      background: white; 
+    }
+
+    /* PROFILE SECTION */
+    .profile-section {
+      text-align: center;
+      padding: 30px;
+      background: linear-gradient(to right, #a8c0ff, #b8e0d2);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-bottom: 30px;
+    }
+
+    .profile-pic {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 3px solid #ffffff;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .profile-pic:hover {
+      transform: scale(1.1);
+    }
+
+    h1 {
+      color: #525f80;
+      font-size: 30px;
+      margin: 20px 0;
+    }
+
+    .search-bar {
+      text-align: center;
+      padding: 10px;
+      width: 30%;
+      margin: 10px auto;
+      border-radius: 30px;
+      border: 2px solid #aaa;
+      transition: border-color 0.3s;
+    }
+
+    .search-bar:focus {
+      border-color: #80e0ff;
+    }
+
+    /* -CATEGORY SECTION- */
+    .category-section {
+      background: linear-gradient(to right, #a8c0ff, #b8e0d2);
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .category-section h2 {
+      text-align: center;
+      color: #525f80;
+      margin-bottom: 20px;
+    }
+
+    .categories {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+
+    .category-button {
+      
+      padding: 10px 10px;  
+      text-align: center;
+      font-size: 16px;
+      color: #333;
+      cursor: pointer;
+      width: 100px;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .category-button img {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 10px;
+    }
+
+    .category-button:hover {
+      background-color: f0efda;
+      transform: translateY(-5px);
+    }
+
+    .category-button a {
+      color: inherit;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    /* HEALTH TIPS SECTION */
+    .health-tips {
+      background: linear-gradient(to right, #a8c0ff, #b8e0d2);
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .health-tips h2 {
+      color: #525f80;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .health-tips-videos {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+
+    .health-tips-videos iframe {
+      width: 45%;
+      height: 200px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+    }
+
+    .health-tips-videos iframe:hover {
+      transform: scale(1.05);
+    }
+
+  </style>
+</head>
+
+
+
+<body>
+  <div class="container">
+    <!-- Profile Section -->
+    <header class="profile-section">
+      <img src="profile.png" alt="Profile" class="profile-pic">
+      <h1>Selamat Datang!</h1>
+      <input type="text" class="search-bar" placeholder="Carian...">
+    </header>
+
+    <!-- Category Buttons -->
+    <div class="category-section">
+      <h2>Kategori</h2>
+      <div class="categories">
+        <div class="category-button">
+          <img src="meds.png" alt="Medicine">
+          <a href="../medicinebutton/medicinebutton.html">Ubat-Ubatan</a>
+        </div>
+        <div class="category-button">
+          <img src="appt.png" alt="Appointment">
+          <a href="../appointment/appointment.html">Temujanji</a>
+        </div>
+        <div class="category-button">
+          <img src="notes.png" alt="Notes">
+          <a href="../notes/notes.html">Nota</a>
+        </div>
+        <div class="category-button">
+          <img src="mr.png" alt="Medical Record">
+          <a href="../medicalrecord/medicalrecord.html">Rekod Perubatan</a>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- HEALTH TIPS SEKSEEEEENNNNN -->
+
+    <div class="health-tips">
+      <h2>Tip Kesihatan</h2>
+      <div class="health-tips-videos">
+        <iframe src="https://www.youtube.com/embed/MIc299Flibs" frameborder="0" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/QWF9mGtjju4" frameborder="0" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/pMj7SsDVO18" frameborder="0" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/Vagc5qqm1_o" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
